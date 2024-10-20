@@ -48,7 +48,9 @@ const EditBookForm = ({ onUpdateBook, onDeleteBook }) => {
 
     const handleDelete = async () => {
         try {
-            const response = await fetch(`http://localhost:5001/books/${id}`, {
+            const response = await fetch(`https://ahaz-visa-app-kynt-ahazs-projects.vercel.app/books/${id}`, {
+
+            //const response = await fetch(`http://localhost:5001/books/${id}`, {
                 method: 'DELETE',
             });
 
