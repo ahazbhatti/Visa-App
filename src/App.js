@@ -25,8 +25,9 @@ function App() {
         setEditingBook(book);
     };
     */
+   
     const fetchBooks = async () => {
-        const response = await fetch('https://ahaz-visa-app-kynt-ahazs-projects.vercel.app/books');
+        const response = await fetch('https://ahaz-visa-app-kynt-ahazs-projects.vercel.app');
         const data = await response.json();
         console.log('Fetched books:', data);
         setBooks(data); // Sets the fetched books in the state
