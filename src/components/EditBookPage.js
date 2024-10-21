@@ -7,11 +7,11 @@ const EditBookPage = () => {
     const { id } = useParams();
 
     const fetchBooks = async () => {
-        const response = await fetch('https://ahaz-visa-app-kynt-ahazs-projects.vercel.app/books');
-        //const response = await fetch('http://localhost:5001/books');
+        const response = await fetch('http://localhost:5001/books');
         const data = await response.json();
         setBooks(data);
     };
+    
 
     useEffect(() => {
         fetchBooks(); // Fetch the book list on component mount

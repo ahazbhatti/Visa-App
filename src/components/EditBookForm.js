@@ -8,8 +8,7 @@ const EditBookForm = ({ onUpdateBook, onDeleteBook }) => {
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const response = await fetch(`https://ahaz-visa-app-kynt-ahazs-projects.vercel.app/books/${id}`);
-                //const response = await fetch(`http://localhost:5001/books/${id}`);
+                const response = await fetch(`http://localhost:5001/books/${id}`);
                 if (!response.ok) {
                     throw new Error(`Error: ${response.status} ${response.statusText}`);
                 }
@@ -27,8 +26,8 @@ const EditBookForm = ({ onUpdateBook, onDeleteBook }) => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`https://ahaz-visa-app-kynt-ahazs-projects.vercel.app/books/${id}`, {
-            //const response = await fetch(`http://localhost:5001/books/${id}`, {
+            
+            const response = await fetch(`http://localhost:5001/books/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

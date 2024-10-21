@@ -15,7 +15,7 @@ function App() {
     }, []);
 
     
-    /*const fetchBooks = async () => {
+    const fetchBooks = async () => {
         const response = await fetch('http://localhost:5001/books');
         const data = await response.json();
         console.log('Fetched books:', data);
@@ -24,20 +24,11 @@ function App() {
     const handleEdit = (book) => {
         setEditingBook(book);
     };
-    */
-   
-    const fetchBooks = async () => {
-        const response = await fetch('https://ahaz-visa-app-kynt-ahazs-projects.vercel.app/books');
-        const data = await response.json();
-        console.log('Fetched books:', data);
-        setBooks(data); // Sets the fetched books in the state
-    };
     
-    const handleEdit = (book) => {
-        setEditingBook(book);
-    };
+   
+   
 
-    /*const handleDelete = async (id) => {
+    const handleDelete = async (id) => {
         if (window.confirm(`Are you sure you want to delete this book?`)) {
             await fetch(`http://localhost:5001/books/${id}`, {
                 method: 'DELETE',
@@ -45,15 +36,8 @@ function App() {
             fetchBooks(); // Refresh the book list
         }
     };
-*/
-    const handleDelete = async (id) => {
-        if (window.confirm(`Are you sure you want to delete this book?`)) {
-            await fetch(`https://ahaz-visa-app-kynt-ahazs-projects.vercel.app/books/${id}`, {
-                method: 'DELETE',
-            });
-            fetchBooks(); // This should refresh the book list after deletion
-        }
-    };
+
+  
 
     return (
         <Router>

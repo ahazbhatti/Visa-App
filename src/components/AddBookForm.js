@@ -26,8 +26,7 @@ function AddBookForm({ onAddBook, editingBook, setEditingBook }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newBook = { title, author, year, genre };
-        await fetch('https://ahaz-visa-app-kynt-ahazs-projects.vercel.app/books/', {
-        //await fetch('http://localhost:5001/books', {
+        await fetch('http://localhost:5001/books', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
