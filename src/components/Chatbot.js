@@ -4,6 +4,7 @@ const Chatbot = () => {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
     const apiKey = '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'; // OpenAI API key
+
     const chatApiUrl = 'https://api.openai.com/v1/chat/completions'; // Chat API URL
     const dalleApiUrl = 'https://api.openai.com/v1/images/generations'; // DALL-E API URL
 
@@ -12,8 +13,8 @@ const Chatbot = () => {
         setMessages(newMessages);
         
         if (input.toLowerCase().startsWith("draw me")) {
-            // Call DALL-E API for image generation
-            const prompt = input.replace("draw me", "").trim(); // Extract the prompt
+            //  DALL-E API for image generation
+            const prompt = input.replace("draw me", "").trim(); 
             const response = await fetch(dalleApiUrl, {
                 method: 'POST',
                 headers: {
@@ -35,7 +36,6 @@ const Chatbot = () => {
                 setMessages([...newMessages, { text: "Sorry, I couldn't generate the image.", sender: 'bot' }]);
             }
         } else {
-            // Handle chatbot response
             const response = await fetch(chatApiUrl, {
                 method: 'POST',
                 headers: {
@@ -61,15 +61,15 @@ const Chatbot = () => {
             border: '1px solid #ccc',
             padding: '10px',
             borderRadius: '5px',
-            marginTop: '800px', // Increase margin to move it down
+            marginTop: '800px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            width: '800px', // Increased width for better visibility
-            margin: '0 auto', // Center horizontally
-            color: 'white', // Set text color to white
-            backgroundColor: 'rgba(0, 0, 0, 0.7)', // Optional: Add background for better contrast
+            width: '800px', 
+            margin: '0 auto',
+            color: 'white', 
+            backgroundColor: 'rgba(0, 0, 0, 0.7)', 
         }}>
             <h2 style={{ color: 'white' }}>Chatbot</h2>
             <p style={{ textAlign: 'center', color: 'white' }}>

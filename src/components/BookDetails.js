@@ -5,8 +5,6 @@ import { useParams } from 'react-router-dom';
 const BookDetails = () => {
     const { id } = useParams(); // Get the book ID from the URL
 
-    // Fetch book details based on the ID
-    // You can use a similar fetchBooks function here or just display the details.
 
     return (
         <div>

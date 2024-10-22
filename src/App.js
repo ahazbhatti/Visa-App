@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Chatbot from './components/Chatbot';
 import AddBookForm from './components/AddBookForm';
 import BookCard from './components/BookCard';
-import EditBookForm from './components/EditBookForm'; // Import the EditBookForm component
+import EditBookForm from './components/EditBookForm'; 
 import BookDetails from './components/BookDetails';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         const response = await fetch('http://localhost:3000/books');
         const data = await response.json();
         console.log('Fetched books:', data);
-        setBooks(data); // Sets the fetched books in the state
+        setBooks(data); // sets the fetched books in the state
     };
 
     const handleEdit = (book) => {
@@ -30,7 +30,7 @@ function App() {
             await fetch(`http://localhost:3000/books/${id}`, {
                 method: 'DELETE',
             });
-            fetchBooks(); // Refresh the book list
+            fetchBooks(); // refresh the book list
         }
     };
 

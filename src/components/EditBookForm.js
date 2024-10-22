@@ -39,8 +39,8 @@ const EditBookForm = ({ onUpdateBook, onDeleteBook }) => {
                 throw new Error(`Error: ${response.status} ${response.statusText}`);
             }
 
-            onUpdateBook(); // Refresh the book list
-            navigate('/'); // Redirect back to the home page
+            onUpdateBook(); 
+            navigate('/'); // rdirect back to the home page
         } catch (error) {
             console.error('Failed to update book:', error);
         }
