@@ -15,7 +15,7 @@ function App() {
     }, []);
 
     const fetchBooks = async () => {
-        const response = await fetch('http://localhost:3000/books');
+        const response = await fetch('http://localhost:5001/books');
         const data = await response.json();
         console.log('Fetched books:', data);
         setBooks(data); // sets the fetched books in the state

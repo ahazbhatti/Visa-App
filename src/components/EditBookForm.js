@@ -27,7 +27,7 @@ const EditBookForm = ({ onUpdateBook, onDeleteBook }) => {
 
         try {
             
-            const response = await fetch(`http://localhost:3000/books/${id}`, {
+            const response = await fetch(`http://localhost:5001/books/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
