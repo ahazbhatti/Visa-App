@@ -14,35 +14,30 @@ function App() {
         fetchBooks();
     }, []);
 
-    
     const fetchBooks = async () => {
-        const response = await fetch('http://localhost:5001/books');
+        const response = await fetch('http://localhost:3000/books');
         const data = await response.json();
         console.log('Fetched books:', data);
         setBooks(data); // Sets the fetched books in the state
     };
+
     const handleEdit = (book) => {
         setEditingBook(book);
     };
-    
-   
-   
 
     const handleDelete = async (id) => {
         if (window.confirm(`Are you sure you want to delete this book?`)) {
-            await fetch(`http://localhost:5001/books/${id}`, {
+            await fetch(`http://localhost:3000/books/${id}`, {
                 method: 'DELETE',
             });
             fetchBooks(); // Refresh the book list
         }
     };
 
-  
-
     return (
         <Router>
-            <div style={{ backgroundColor: 'lightblue', minHeight: '100vh', padding: '20px' }}>
-                <h1>Visa Books</h1>
+            <div style={{ minHeight: '100vh', padding: '20px' }}>
+                <h1 style={{ color: 'white' }}>Visa Books</h1> {/* Change the color to white */}
                 <nav>
                     <Link to="/">Home</Link> | <Link to="/add-book">Add Book</Link>
                 </nav>

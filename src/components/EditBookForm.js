@@ -8,7 +8,7 @@ const EditBookForm = ({ onUpdateBook, onDeleteBook }) => {
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const response = await fetch(`http://localhost:5001/books/${id}`);
+                const response = await fetch(`http://localhost:3000/books/${id}`);
                 if (!response.ok) {
                     throw new Error(`Error: ${response.status} ${response.statusText}`);
                 }
@@ -27,7 +27,7 @@ const EditBookForm = ({ onUpdateBook, onDeleteBook }) => {
 
         try {
             
-            const response = await fetch(`http://localhost:5001/books/${id}`, {
+            const response = await fetch(`http://localhost:3000/books/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,24 +46,7 @@ const EditBookForm = ({ onUpdateBook, onDeleteBook }) => {
         }
     };
 
-    const handleDelete = async () => {
-        try {
-            const response = await fetch(`https://ahaz-visa-app-kynt-ahazs-projects.vercel.app/books/${id}`, {
-
-            //const response = await fetch(`http://localhost:5001/books/${id}`, {
-                method: 'DELETE',
-            });
-
-            if (response.ok) {
-                onDeleteBook(); // Refresh the book list
-                navigate('/'); // Redirect back to the home page
-            } else {
-                throw new Error(`Error: ${response.status} ${response.statusText}`);
-            }
-        } catch (error) {
-            console.error('Failed to delete book:', error);
-        }
-    };
+    
 
     return (
         <form onSubmit={handleSubmit}>
@@ -96,11 +79,11 @@ const EditBookForm = ({ onUpdateBook, onDeleteBook }) => {
                 required
             />
             <button type="submit">Update Book</button>
-            <button type="button" onClick={handleDelete} style={{ marginLeft: '10px', backgroundColor: 'red', color: 'white' }}>
-                Delete Book
-            </button>
+        
         </form>
     );
 };
+
+
 
 export default EditBookForm;

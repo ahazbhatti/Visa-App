@@ -19,17 +19,22 @@ function BookCard({ book, onDelete }) {
             margin: '10px',
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)' // Optional: Add a background color for better contrast
         }}>
-            <h2>{book.title}</h2>
-            <p>Author: {book.author}</p>
-            <p>Year: {book.year}</p>
-            <p>Genre: {book.genre}</p>
+            <h2 style={{ color: 'white' }}>{book.title}</h2>
+            <p style={{ color: 'white' }}>Author: {book.author}</p>
+            <p style={{ color: 'white' }}>Year: {book.year}</p>
+            <p style={{ color: 'white' }}>Genre: {book.genre}</p>
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
                 <Link to={`/edit-book/${book.id}`}>
-                    <button>Edit</button>
+                    <button style={{ color: 'white', backgroundColor: 'transparent', border: '1px solid white', borderRadius: '4px', padding: '5px 10px' }}>Edit</button>
                 </Link>
-                <button onClick={() => handleDelete(book.id)}>Delete</button>
+                <button 
+                    onClick={() => handleDelete(book.id)} 
+                    style={{ color: 'white', backgroundColor: 'transparent', border: '1px solid white', borderRadius: '4px', padding: '5px 10px' }}>
+                    Delete
+                </button>
             </div>
         </div>
     );

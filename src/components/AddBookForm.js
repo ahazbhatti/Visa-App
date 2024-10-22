@@ -25,8 +25,15 @@ function AddBookForm({ onAddBook, editingBook, setEditingBook }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const newBook = { title, author, year, genre };
-        await fetch('http://localhost:5001/books', {
+
+        // Validate that year is an integer
+        if (!Number.isInteger(Number(year))) {
+            setMessage('Please enter a valid year as an integer.');
+            return;
+        }
+
+        const newBook = { title, author, year: Number(year), genre }; // Convert year to integer
+        await fetch('http://localhost:3000/books', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -49,11 +56,17 @@ function AddBookForm({ onAddBook, editingBook, setEditingBook }) {
             <form onSubmit={handleSubmit}>
                 <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
                 <input value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Author" required />
-                <input value={year} onChange={(e) => setYear(e.target.value)} placeholder="Year" required />
+                <input 
+                    type="number" // Set input type to number
+                    value={year} 
+                    onChange={(e) => setYear(e.target.value)} 
+                    placeholder="Year" 
+                    required 
+                />
                 <input value={genre} onChange={(e) => setGenre(e.target.value)} placeholder="Genre" required />
                 <button type="submit">{editingBook ? 'Update Book' : 'Add Book'}</button>
             </form>
-            {message && <p>{message}</p>}
+            {message && <p style={{ color: 'white', fontWeight: 'bold' }}>{message}</p>} {/* Bold and white message */}
         </div>
     );
 }

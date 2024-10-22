@@ -7,7 +7,7 @@ const EditBookPage = () => {
     const { id } = useParams();
 
     const fetchBooks = async () => {
-        const response = await fetch('http://localhost:5001/books');
+        const response = await fetch('http://localhost:3000/books');
         const data = await response.json();
         setBooks(data);
     };
