@@ -14,15 +14,15 @@ const EditBookPage = () => {
     
 
     useEffect(() => {
-        fetchBooks(); // Fetch the book list on component mount
+        fetchBooks(); 
     }, []);
 
     const handleUpdateBook = () => {
-        fetchBooks(); // Refresh the book list after updating
+        fetchBooks(); 
     };
 
     const handleDeleteBook = () => {
-        fetchBooks(); // Refresh the book list after deletion
+        fetchBooks(); 
     };
 
     return (
