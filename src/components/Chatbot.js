@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const Chatbot = () => {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
+    const apiKey = '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'; // OpenAI API key
 
     const chatApiUrl = 'https://api.openai.com/v1/chat/completions'; // Chat API URL
     const dalleApiUrl = 'https://api.openai.com/v1/images/generations'; // DALL-E API URL

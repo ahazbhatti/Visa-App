@@ -2,6 +2,13 @@
 
 body {
   font-family: Arial, sans-serif;
+  background-color: rgb(3, 35, 52); /* Set background color to brown */
+  margin: 0;
+  padding: 0;
+}
+/*
+body {
+  font-family: Arial, sans-serif;
   background-image: url('/Users/ahazbhatti/Documents/ahaz-visa-app/src/book.jpg'); 
   background-size: cover; 
   background-repeat: no-repeat; 
@@ -9,6 +16,7 @@ body {
   margin: 0;
   padding: 0;
 }
+*/
 
 .container {
   max-width: 800px;
